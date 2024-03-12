@@ -1,7 +1,7 @@
-/*Gener'a'ting two execut'a'ble files with the s'a'me MD5 H'a'sh*/
 
 #include <stdio.h>
-
+#include <stdbool.h>
+//initializing array x and y
 unsigned char x[200] = {'a','a','a','a','a','a','a','a','a','a',
                         'a','a','a','a','a','a','a','a','a','a',
                         'a','a','a','a','a','a','a','a','a','a',
@@ -23,41 +23,50 @@ unsigned char x[200] = {'a','a','a','a','a','a','a','a','a','a',
                         'a','a','a','a','a','a','a','a','a','a',
                         'a','a','a','a','a','a','a','a','a','a'};
 
-unsigned char y[200] = {'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',
-                        'b','b','b','b','b','b','b','b','b','b',};
+unsigned char y[200] = {'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','b','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','b','a',
+                        'a','a','a','a','a','a','a','a','a','a',
+                        'a','a','a','a','a','a','a','a','a','a'};
 
 
 int main(){
+bool check = true; //boolean variable to check if arrays are the same or different. 
 
 for (int i = 0; i<200; i++){
 
-    printf("%x ", x[i]);
+    if (x[i] != y[i]){
+
+         check = false;//should run malicious code if the contents are not the same
+    
+    }
+    
 
 }
-printf("\n");
 
-for (int j = 0; j<200; j++){
-
-    printf("%x ", y[j]);
+if (check == true){
+    printf("Benign code is executing.....\n"); //benign code should ecomxecute if arrays are the same.
 
 }
-printf("\n");
+else{
+
+    printf("Malicious code is executing....\n"); //malicious code should execute if the arrays are different. 
+
+}
+
 }
